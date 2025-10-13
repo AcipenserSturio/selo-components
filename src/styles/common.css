@@ -1,14 +1,31 @@
+@font-face {
+    font-family: "nasin-nanpa";
+    src: url("/nasin-nanpa.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    unicode-range: U+F1900-F19FF;
+}
+
 :root {
+    --font: "nasin-nanpa", "Nunito", "Noto Sans Hebrew", sans-serif;
     --bg: #fff;
+    --bg-1: #f3f3f3;
+    --bg-2: #eee;
+    --bg-3: #ccc;
     --txt: #111;
     --grey: #666;
+    --grey-1: #bbb;
     --accent: #4669ac;
     --accent-1: #0c3b95;
 }
 .dark {
     --bg: #111;
+    --bg-1: #1b1b1b;
+    --bg-2: #333;
+    --bg-3: #4c4c4c;
     --txt: #dbdbdb;
     --grey: #999;
+    --grey-1: #666;
     --accent: #5d7ab0;
     --accent-1: #8fa9db;
 }
@@ -16,7 +33,7 @@
 body {
     background-color: var(--bg);
     margin: 1rem;
-    font-family: "Nunito", Arial, Helvetica, sans-serif;
+    font-family: var(--font);
     color: var(--txt);
     line-height: 1.7;
     font-size: 18px;
@@ -47,7 +64,7 @@ blockquote {
 }
 
 main {
-    max-width: 850px;
+    max-width: 800px;
     margin: auto;
     margin-bottom: 35px;
     text-align: justify;
@@ -75,12 +92,36 @@ a:hover {
     color: var(--accent-1) !important;
 }
 
+button {
+    color: inherit; /* Safari fix */
+}
+
 h1 {
     text-align: center;
     margin: 0.75em 0;
     font-size: 1.75em;
+    line-height: 120%;
 }
 
 hr {
-    color: var(--accent);
+    color: var(--grey-1);
+}
+
+table {
+    width: 100%;
+    text-align: initial;
+    border-collapse: collapse;
+}
+th {
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px 10px;
+}
+td {
+    border-collapse: collapse;
+    padding: 5px 10px;
+}
+th,
+tr:nth-child(even) {
+    background-color: var(--bg-1);
 }
