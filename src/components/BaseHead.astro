@@ -13,6 +13,7 @@ interface Props {
 const siteUrl = new URL(import.meta.env.BASE_URL, Astro.site);
 const socialImageURL = new URL("/logo.png", siteUrl);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const siteTitle = siteUrl.hostname;
 
 const { title, description, goatcounter = "", useRss = false } = Astro.props;
 ---
@@ -31,7 +32,7 @@ const { title, description, goatcounter = "", useRss = false } = Astro.props;
     <link
       rel="alternate"
       type="application/rss+xml"
-      title={import.meta.env.BASE_URL}
+      title={siteTitle}
       href={new URL("/rss.xml", Astro.site)}
     />
   )
@@ -58,7 +59,7 @@ const { title, description, goatcounter = "", useRss = false } = Astro.props;
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:site_name" content={import.meta.env.BASE_URL} />
+<meta property="og:site_name" content={siteTitle} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={socialImageURL} />
