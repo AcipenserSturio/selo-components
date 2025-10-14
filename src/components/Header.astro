@@ -1,6 +1,19 @@
 ---
 import DarkModeToggle from "./DarkModeToggle.astro";
 const SITE_TITLE = "temporary";
+
+interface Props {
+  useNavbar?: boolean;
+}
+const { useNavbar = false } = Astro.props;
+
+const navbar = [
+  ["https://wasona.com/", "Course"],
+  ["https://lipu.pona.la/", "Library"],
+  ["https://sin-kulupu.pona.la/", "News"],
+  ["https://discord.gg/6zkugJFU4x", "Discord"],
+  ["https://pona.la/", "More"],
+];
 ---
 
 <style>
@@ -27,8 +40,28 @@ const SITE_TITLE = "temporary";
 </style>
 
 <header>
+  {
+    useNavbar && (
+      <div style="font-weight: 700">
+        {navbar
+          .map(([url, label]) =>
+            `https://${import.meta.env.PROD}/` == url ? (
+              <strong>{label}</strong>
+            ) : (
+              <a href={url}>{label}</a>
+            ),
+          )
+          .reduce((prev, curr, i) => (
+            <>
+              {prev} {" · "} {curr}
+            </>
+          ))}
+      </div>
+    )
+  }
   <a href="/">
     <img alt={SITE_TITLE} src="/header.svg" />
   </a>
   <DarkModeToggle />
+  <slot />
 </header>
