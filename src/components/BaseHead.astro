@@ -4,20 +4,17 @@
 // import { GOATCOUNTER_URL, SITE_TITLE, SITE_URL } from "@/consts";
 // import "../styles/common.css";
 
-const GOATCOUNTER_URL = "temporary";
-const SITE_TITLE = "temporary";
-const SITE_URL = "temporary";
-
 interface Props {
   title: string;
   description: string;
-  image?: string;
+  goatcounter?: string;
+  useRss?: boolean;
 }
 const siteUrl = new URL(import.meta.env.BASE_URL, Astro.site);
 const socialImageURL = new URL("/logo.png", siteUrl);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = "/logo.png" } = Astro.props;
+const { title, description, goatcounter = "", useRss = false } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -29,12 +26,16 @@ const { title, description, image = "/logo.png" } = Astro.props;
 <meta name="robots" content="index, nofollow" />
 
 <!-- RSS -->
-<link
-  rel="alternate"
-  type="application/rss+xml"
-  title={SITE_TITLE}
-  href={new URL("/rss.xml", Astro.site)}
-/>
+{
+  useRss && (
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={import.meta.env.BASE_URL}
+      href={new URL("/rss.xml", Astro.site)}
+    />
+  )
+}
 
 <!-- Font preloads -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -57,7 +58,7 @@ const { title, description, image = "/logo.png" } = Astro.props;
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:site_name" content={SITE_URL} />
+<meta property="og:site_name" content={import.meta.env.BASE_URL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={socialImageURL} />
@@ -69,11 +70,10 @@ const { title, description, image = "/logo.png" } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={socialImageURL} />
 
-<!-- Site-specific css -->
-
 <!-- Analytics -->
 <script
-  data-goatcounter={`https://${GOATCOUNTER_URL}/count`}
+  is:inline
+  data-goatcounter={`https://${goatcounter}/count`}
   async
   src="//gc.zgo.at/count.js"></script>
 
