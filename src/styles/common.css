@@ -96,6 +96,10 @@ button {
     color: inherit; /* Safari fix */
 }
 
+audio {
+    width: 100%;
+}
+
 h1 {
     text-align: center;
     margin: 0.75em 0;
