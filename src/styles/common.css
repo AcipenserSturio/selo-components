@@ -35,7 +35,7 @@ body {
     margin: 1rem;
     font-family: var(--font);
     color: var(--txt);
-    line-height: 1.7;
+    line-height: 1.7em;
     font-size: 18px;
 }
 
