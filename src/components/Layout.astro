@@ -12,6 +12,7 @@ interface Props {
   github?: string;
   useRss?: boolean;
   useNavbar?: boolean;
+  useLanguageToggle?: boolean;
   dir?: "auto" | "rtl" | "ltr";
 }
 const {
@@ -22,6 +23,7 @@ const {
   github = "",
   useRss = false,
   useNavbar = false,
+  useLanguageToggle = false,
   dir = "auto",
 } = Astro.props;
 ---
@@ -38,7 +40,7 @@ const {
     <slot name="head" />
   </head>
   <body>
-    <Header useNavbar={useNavbar} />
+    <Header useNavbar={useNavbar} useLanguageToggle={useLanguageToggle} />
     <main dir={dir}>
       <article>
         <h1>{title}</h1>
