@@ -1,10 +1,11 @@
 ---
 import DarkModeToggle from "./DarkModeToggle.astro";
-
+import LanguageToggle from "./LanguageToggle.astro";
 interface Props {
   useNavbar?: boolean;
+  useLanguageToggle?: boolean;
 }
-const { useNavbar = false } = Astro.props;
+const { useNavbar = false, useLanguageToggle = false } = Astro.props;
 
 const navbar = [
   ["https://wasona.com/", "Course"],
@@ -63,5 +64,6 @@ const hostname = new URL(import.meta.env.BASE_URL, Astro.site).hostname;
     <img alt={hostname} src="/header.svg" />
   </a>
   <DarkModeToggle />
+  {useLanguageToggle && <LanguageToggle />}
   <slot />
 </header>
