@@ -1,0 +1,61 @@
+---
+import BaseHead from "./BaseHead.astro";
+import Footer from "./Footer.astro";
+import FormattedDate from "./FormattedDate.astro";
+import Header from "./Header.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  date?: Date;
+  goatcounter?: string;
+  github?: string;
+  useRss?: boolean;
+  useNavbar?: boolean;
+  dir?: "auto" | "rtl" | "ltr";
+}
+const {
+  title,
+  description,
+  date,
+  goatcounter = "",
+  github = "",
+  useRss = false,
+  useNavbar = false,
+  dir = "auto",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+      goatcounter={goatcounter}
+      useRss={useRss}
+    />
+    <slot name="head" />
+  </head>
+  <body>
+    <Header useNavbar={useNavbar} />
+    <main dir={dir}>
+      <article>
+        <h1>{title}</h1>
+        {
+          date && (
+            <h3 style="text-align: center;">
+              <FormattedDate date={date} />
+            </h3>
+          )
+        }
+        <slot name="pagenav" />
+        <section>
+          <slot />
+        </section>
+        <slot name="pagenav" />
+      </article>
+    </main>
+    <Footer github={github} />
+  </body>
+</html>

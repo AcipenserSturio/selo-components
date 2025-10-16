@@ -7,5 +7,6 @@ export { default as BaseHead } from "./src/components/BaseHead.astro";
 export { default as DarkModeToggle } from "./src/components/DarkModeToggle.astro";
 export { default as Embed } from "./src/components/Embed.astro";
 export { default as Footer } from "./src/components/Footer.astro";
+export { default as FormattedDate } from "./src/components/FormattedDate.astro";
 export { default as Header } from "./src/components/Header.astro";
-
+export { default as Layout } from "./src/components/Layout.astro";
