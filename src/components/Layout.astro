@@ -9,19 +9,9 @@ interface Props {
   description: string;
   date?: Date;
   useRss?: boolean;
-  useNavbar?: boolean;
-  useLanguageToggle?: boolean;
   dir?: "auto" | "rtl" | "ltr";
 }
-const {
-  title,
-  description,
-  date,
-  useRss = false,
-  useNavbar = false,
-  useLanguageToggle = false,
-  dir = "auto",
-} = Astro.props;
+const { title, description, date, useRss = false, dir = "auto" } = Astro.props;
 ---
 
 <!doctype html>
@@ -31,7 +21,7 @@ const {
     <slot name="head" />
   </head>
   <body>
-    <Header useNavbar={useNavbar} useLanguageToggle={useLanguageToggle} />
+    <Header />
     <main dir={dir}>
       <article>
         <h1>{title}</h1>

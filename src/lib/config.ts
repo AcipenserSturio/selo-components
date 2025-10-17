@@ -29,6 +29,8 @@ const ConfigSchema = z.object({
   description: z.string(),
   url_goatcounter: z.string(),
   url_github: z.string(),
+  use_navbar: z.boolean(),
+  use_language_toggle: z.boolean(),
 });
 
 export const config = readAndParseJson("./src/config.json", ConfigSchema);
