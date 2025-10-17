@@ -23,21 +23,19 @@ const { title, description, date, useRss = false, dir = "auto" } = Astro.props;
   <body>
     <Header />
     <main dir={dir}>
+      <h1>{title}</h1>
+      {
+        date && (
+          <h3 style="text-align: center;">
+            <FormattedDate date={date} />
+          </h3>
+        )
+      }
+      <slot name="pagenav" />
       <article>
-        <h1>{title}</h1>
-        {
-          date && (
-            <h3 style="text-align: center;">
-              <FormattedDate date={date} />
-            </h3>
-          )
-        }
-        <slot name="pagenav" />
-        <section>
-          <slot />
-        </section>
-        <slot name="pagenav" />
+        <slot />
       </article>
+      <slot name="pagenav" />
     </main>
     <Footer />
   </body>
