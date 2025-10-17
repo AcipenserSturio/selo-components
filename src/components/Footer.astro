@@ -1,4 +1,6 @@
 ---
+import { config } from "../lib/config";
+
 interface Props {
   github: string;
 }
@@ -28,4 +30,5 @@ const { github } = Astro.props;
   <a href="https://github.com/AcipenserSturio/selo-components">selo</a>
   theme.<br />
   Source code is available on <a href={github}>GitHub</a>.
+  {JSON.stringify(config)}
 </footer>

@@ -4,6 +4,7 @@
   "type": "module",
   "exports": {
     ".": "./index.ts",
+    "./config.ts": "./lib/config.ts",
     "./common.css": "./src/styles/common.css"
   },
   "files": [
