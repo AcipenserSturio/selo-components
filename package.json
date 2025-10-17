@@ -5,6 +5,7 @@
   "exports": {
     ".": "./index.ts",
     "./config": "./src/lib/config.ts",
+    "./rss": "./src/lib/rss.ts",
     "./common.css": "./src/styles/common.css"
   },
   "files": [
@@ -19,6 +20,7 @@
     "astro": "^5.14.4"
   },
   "peerDependencies": {
-    "astro": "^4.0.0 || ^5.0.0"
+    "astro": "^4.0.0 || ^5.0.0",
+    "@astrojs/rss": "^4.0.12"
   }
 }
