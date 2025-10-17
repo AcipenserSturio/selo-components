@@ -1,7 +1,6 @@
 ---
 import { config } from "../lib/config";
 import ScriptToggleDarkMode from "./ScriptToggleDarkMode.astro";
-import ScriptToggleLanguage from "./ScriptToggleLanguage.astro";
 
 // Import the common.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
@@ -81,7 +80,6 @@ const { title, description, useRss = false } = Astro.props;
 
 <!-- Toggle scripts -->
 <ScriptToggleDarkMode />
-<ScriptToggleLanguage />
 <!-- Astro components CSS -->
 
 <slot />
