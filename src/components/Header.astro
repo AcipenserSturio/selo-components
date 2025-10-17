@@ -55,7 +55,11 @@ const navbar = [
       </div>
     )
   }
-  <a href={config.use_language_toggle ? Astro.url.pathname.split("/")[1] : "/"}>
+  <a
+    href={config.use_language_toggle
+      ? `/${Astro.url.pathname.split("/")[1]}`
+      : "/"}
+  >
     <img alt={config.hostname} src="/header.svg" />
   </a>
   <DarkModeToggle />
