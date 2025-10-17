@@ -46,7 +46,7 @@ const [_, lang, ...path] = Astro.url.pathname.split("/");
 </style>
 
 <div id="languageSwitch" class={lang == "tok" ? "current-page-is-tok" : ""}>
-  <a href={`/${lang == "tok" ? "en" : "tok"}/${path.join("/")}`}>
+  <a href={`/${lang == "tok" ? "" : "tok"}/${path.join("/")}`}>
     <svg
       width="30"
       height="30"
