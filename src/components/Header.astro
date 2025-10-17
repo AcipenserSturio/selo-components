@@ -10,6 +10,9 @@ const navbar = [
   ["https://discord.gg/6zkugJFU4x", "Discord"],
   ["https://pona.la/", "More"],
 ];
+const lang = Astro.url.pathname.split("/")[1];
+const localeRoot =
+  !config.use_language_toggle || lang == "en" ? "/" : `/${lang}`;
 ---
 
 <style>
@@ -55,11 +58,7 @@ const navbar = [
       </div>
     )
   }
-  <a
-    href={config.use_language_toggle
-      ? `/${Astro.url.pathname.split("/")[1]}`
-      : "/"}
-  >
+  <a href={localeRoot}>
     <img alt={config.hostname} src="/header.svg" />
   </a>
   <DarkModeToggle />
