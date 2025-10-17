@@ -24,11 +24,11 @@ function readAndParseJson<T extends ZodSchema<any>>(
 }
 
 const ConfigSchema = z.object({
-  site_url: z.string(),
-  site_title: z.string(),
-  site_description: z.string(),
-  goatcounter_url: z.string(),
-  github_url: z.string(),
+  hostname: z.string(),
+  title: z.string(),
+  description: z.string(),
+  url_goatcounter: z.string(),
+  url_github: z.string(),
 });
 
 export const config = readAndParseJson("./src/config.json", ConfigSchema);

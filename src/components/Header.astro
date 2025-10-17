@@ -46,7 +46,7 @@ const navbar = [
       <div style="font-weight: 700">
         {navbar
           .map(([url, label]) =>
-            `https://${config.site_url}/` == url ? (
+            `https://${config.hostname}/` == url ? (
               <span>{label}</span>
             ) : (
               <a href={url}>{label}</a>
@@ -61,7 +61,7 @@ const navbar = [
     )
   }
   <a href="/">
-    <img alt={config.site_url} src="/header.svg" />
+    <img alt={config.hostname} src="/header.svg" />
   </a>
   <DarkModeToggle />
   {useLanguageToggle && <LanguageToggle />}

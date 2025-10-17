@@ -5,8 +5,6 @@ import ScriptToggleLanguage from "./ScriptToggleLanguage.astro";
 
 // Import the common.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-// import { GOATCOUNTER_URL, SITE_TITLE, SITE_URL } from "@/consts";
-// import "../styles/common.css";
 
 interface Props {
   title: string;
@@ -77,7 +75,7 @@ const { title, description, useRss = false } = Astro.props;
 <!-- Analytics -->
 <script
   is:inline
-  data-goatcounter={`https://${config.goatcounter_url}/count`}
+  data-goatcounter={`${config.url_goatcounter}/count`}
   async
   src="//gc.zgo.at/count.js"></script>
 
