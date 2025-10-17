@@ -8,8 +8,6 @@ interface Props {
   title: string;
   description: string;
   date?: Date;
-  goatcounter?: string;
-  github?: string;
   useRss?: boolean;
   useNavbar?: boolean;
   useLanguageToggle?: boolean;
@@ -19,8 +17,6 @@ const {
   title,
   description,
   date,
-  goatcounter = "",
-  github = "",
   useRss = false,
   useNavbar = false,
   useLanguageToggle = false,
@@ -31,12 +27,7 @@ const {
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead
-      title={title}
-      description={description}
-      goatcounter={goatcounter}
-      useRss={useRss}
-    />
+    <BaseHead title={title} description={description} useRss={useRss} />
     <slot name="head" />
   </head>
   <body>
@@ -58,6 +49,6 @@ const {
         <slot name="pagenav" />
       </article>
     </main>
-    <Footer github={github} />
+    <Footer />
   </body>
 </html>
