@@ -8,10 +8,10 @@
 
 :root {
     --font: "nasin-nanpa", "Nunito", "Noto Sans Hebrew", sans-serif;
-    --bg: #fff;
-    --bg-1: #f3f3f3;
-    --bg-2: #eee;
-    --bg-3: #ccc;
+    --bg: oklch(1 0 0);
+    --bg-1: oklch(0.97 0 0);
+    --bg-2: oklch(0.93 0 0);
+    --bg-3: oklch(0.89 0 0);
     --txt: #111;
     --grey: #666;
     --grey-1: #bbb;
@@ -19,10 +19,10 @@
     --accent-1: #0c3b95;
 }
 .dark {
-    --bg: #111;
-    --bg-1: #1b1b1b;
-    --bg-2: #333;
-    --bg-3: #4c4c4c;
+    --bg: oklch(0.18 0 0);
+    --bg-1: oklch(0.21 0 0);
+    --bg-2: oklch(0.25 0 0);
+    --bg-3: oklch(0.29 0 0);
     --txt: #dbdbdb;
     --grey: #999;
     --grey-1: #666;
